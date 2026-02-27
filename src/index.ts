@@ -132,6 +132,7 @@ app.post('/identify', async (req, res) => {
     // --- Step 5: Fetch final consolidated list and build response ---
     const finalContacts = await getAllContactsLinkedToPrimary(ultimatePrimary.id);
     const response = buildResponse(finalContacts);
+    console.log('Response object:', JSON.stringify(response));
     res.json(response);
 
   } catch (error) {
