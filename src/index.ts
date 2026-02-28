@@ -46,7 +46,9 @@ interface Contact {
 
 app.post('/identify', async (req, res) => {
   try {
-    const { email, phonenumber } = req.body;
+    // const { email, phonenumber } = req.body;
+    const { email } = req.body;
+    const phonenumber = req.body.phoneNumber || req.body.phonenumber;
 
     // Find contacts matching email OR phone
     const existingContacts = await findContactsByEmailOrPhone(email, phonenumber);
